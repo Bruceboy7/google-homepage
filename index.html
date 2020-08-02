@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        
+    }
+    .nav-link {
+        font-size: 15px;
+        align-self: center;
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    #right-face-thumbnail {
+        
+        height: 40px;
+        width: auto;
+        border-radius: 20px;
+        /* box-shadow: 1px 1px 3px black; */
+    }
+    #apps-link-img { 
+        height: 18px; 
+        width: auto;
+        opacity: 70%;
+    }
+    #navbar{
+        position: fixed;
+        padding-top: 12px;
+        padding-left: 17px;
+        opacity: .85;
+        display: grid;
+        width: calc(100vw - 45px);
+        grid-template-columns: 50px 50px 1fr 60px 60px 50px 50px;
+        grid-template-rows: 30px;
+        grid-template-areas:
+        "about store . gmail images apps face";
+        
+    }
+    /*----Grid Declarations----*/
+    #about-link {
+        grid-area: about;
+    }
+    #store-link {
+        grid-area: store;
+    }
+    #gmail-link {
+        grid-area: gmail;
+        padding-right: 3px;
+    }
+    #images-link {
+        grid-area: images;
+        padding-right: 3px;
+    }
+    #apps-link {
+        grid-area: apps;
+        padding-left: 8px;
+        padding-top: 3px;
+    }
+    #face-link {
+        grid-area: face;
+        
+    }
+    #google-logo {
+        height: 106px;
+        width: auto;
+    
+    }
+.search-area {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 171px;
+    
+}
+</style>
+
+<html lang="en">
+<head>
+    <title>Google</title>
+</head>
+<body>
+<nav id="navbar">
+    <a id="about-link" class="nav-link left" target="_blank" href="#">About</a>
+    <a id="store-link" class="nav-link left" target="_blank" href="#">Store</a>
+    <a id="gmail-link" class="nav-link right" target="_blank" href="#">Gmail</a>
+    <a id="images-link" class="nav-link left" target="_blank" href="#">Images</a>
+    <a class="nav-link" id="apps-link" title="Google Apps">
+        <img id="apps-link-img" src="https://image.flaticon.com/icons/png/512/60/60991.png"> 
+    </a>
+    <!--this is where the "Google Apps" icon is, which makes a box underneath appear with 29 icons, and a button for "more"-->
+    <a class="nav-link face" id="face-link" href="https://mail.google.com/mail/u/0/#inbox/FMfcgxwJXCKZQjHlmPMCmlnwxHkjCGCR" title="Gmail" target="_blank"><img id="right-face-thumbnail" class="nav-img" src="http://s3.amazonaws.com/ataimages/imgs/1210569/1_large.jpg" alt=""></a>
+</nav>
+<div class="search-area">
+    <img  id="google-logo" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="google logo">
+    <input type="text" title="Search">
+    
+</div>
+</body>
+
+</html>

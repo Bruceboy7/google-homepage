@@ -1,0 +1,1 @@
+This is my first attempt at copying an existing page using the skills i have learned through the Odin Project. We'll see how this goes!
