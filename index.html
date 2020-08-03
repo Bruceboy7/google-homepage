@@ -66,14 +66,66 @@
     #google-logo {
         height: 106px;
         width: auto;
-    
+        margin-bottom: 30px;
     }
+    #search-icon {
+        grid-area: icon;
+        height: 30px;
+        width: auto;
+        margin-left: 10px;
+        
+    }
+    #searchbar {
+        height: 35px;
+        width: 345px;
+        border: none;
+        border-radius: 17px;
+        grid-area: search;
+        
+        
+    }
+    #searchbar-outline{
+        height: 40px;
+        width: 400px;
+        border: 3px solid;
+        background-color: transparent;
+        border: 3px outset;
+        border-radius: 25px;
+        display: grid;
+        align-items: center;
+        grid-template-columns: 50px 1fr;
+        grid-template-areas: "icon search";
+    }
+    #two-buttons {
+        padding-top: 30px;
+        
+    }
+    button {
+        background-color: #eeeeee;
+        color: #666666;
+        border: none;
+        border-radius: 3px;
+        height: 30px;
+        width: 100px;
+        margin: 4px;
+    }
+    
 .search-area {
     align-items: center;
     display: flex;
     flex-direction: column;
     padding-top: 171px;
     
+}
+footer {
+    display: grid;
+    position: fixed;
+    height: 75px;
+    width: 100vw;
+    background-color: turquoise;
+    grid-template-columns: 50px 50px 50px 1fr 50px 50px 50px;
+    
+
 }
 </style>
 
@@ -95,9 +147,20 @@
 </nav>
 <div class="search-area">
     <img  id="google-logo" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="google logo">
-    <input type="text" title="Search">
+    <div id="searchbar-outline">
+        <img id="search-icon" src="https://static.thenounproject.com/png/1189550-200.png">
+       <input type="text" title="Search" id="searchbar">
+    </div>
+    <div id="two-buttons">
+        <button>Button 1</button>
+        <button>Button 2</button>
+    </div>
     
 </div>
+
+<footer id="footer">
+    
+</footer>
 </body>
 
 </html>
