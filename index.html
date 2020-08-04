@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <style>
-    body{
-        font-family: Arial, sans-serif;
-        
+    body {
+        font-family: Arial, sans-serif; 
     }
     .nav-link {
         font-size: 15px;
         align-self: center;
     }
-
-    a{
+    a {
         text-decoration: none;
-        color: black;
+        color: #555;
+    }
+    a:hover {
+        text-decoration: underline;
+        color: #222;
     }
     
     #right-face-thumbnail {
@@ -19,21 +21,24 @@
         height: 40px;
         width: auto;
         border-radius: 20px;
-        /* box-shadow: 1px 1px 3px black; */
+        box-shadow: 0px 0px 2px #ccc;
     }
     #apps-link-img { 
         height: 18px; 
         width: auto;
         opacity: 70%;
     }
+    #apps-link-img:hover{
+        opacity: 100%;
+        cursor: pointer;
+    }
     #navbar{
         position: fixed;
         padding-top: 12px;
         padding-left: 17px;
-        opacity: .85;
         display: grid;
         width: calc(100vw - 45px);
-        grid-template-columns: 50px 50px 1fr 60px 60px 50px 50px;
+        grid-template-columns: 50px 50px 1fr 60px 65px 50px 50px;
         grid-template-rows: 30px;
         grid-template-areas:
         "about store . gmail images apps face";
@@ -61,8 +66,9 @@
     }
     #face-link {
         grid-area: face;
-        
     }
+
+    /*------Search Area--------- */
     #google-logo {
         height: 106px;
         width: auto;
@@ -70,44 +76,60 @@
     }
     #search-icon {
         grid-area: icon;
-        height: 30px;
+        height: 20px;
         width: auto;
         margin-left: 10px;
         
     }
     #searchbar {
         height: 35px;
-        width: 345px;
+        width: auto;
         border: none;
         border-radius: 17px;
-        grid-area: search;
-        
-        
+        grid-area: "search"; 
+        font-size: 20px; 
+        font-weight: 150;  
     }
-    #searchbar-outline{
+    #searchbar:focus-within{
+        outline: none;
+
+    }
+    #searchbar-container{
         height: 40px;
-        width: 400px;
+        width: 470px;
         border: 3px solid;
         background-color: transparent;
-        border: 3px outset;
+        border: 1px solid #ddd;
         border-radius: 25px;
         display: grid;
         align-items: center;
         grid-template-columns: 50px 1fr;
         grid-template-areas: "icon search";
     }
-    #two-buttons {
-        padding-top: 30px;
+    div.full-searchbar:hover {
+        box-shadow: 0 0px 4px #ccc ;
         
     }
+    #two-buttons {
+        padding-top: 30px;
+
+    }
     button {
-        background-color: #eeeeee;
+        background-color: #eeeeeedd;
         color: #666666;
+        font-size: 13px;
         border: none;
-        border-radius: 3px;
-        height: 30px;
-        width: 100px;
+        border-radius: 4px;
+        height: 35px;
+        width: 130px;
         margin: 4px;
+    }
+    button.search-button:hover{
+        border: 1px solid #ccc;
+        background-image: linear-gradient(#fff, #eee);
+        box-shadow: 0 1px 2px #ddd;
+        color: black;
+        cursor: pointer;
     }
     
 .search-area {
@@ -115,17 +137,43 @@
     display: flex;
     flex-direction: column;
     padding-top: 171px;
-    
 }
+
+/*--------Footer Info----------*/
+.footer-link {
+        font-size: 17px;
+        align-self: center;
+        font-weight: 100;
+    }
 footer {
     display: grid;
     position: fixed;
-    height: 75px;
-    width: 100vw;
-    background-color: turquoise;
-    grid-template-columns: 50px 50px 50px 1fr 50px 50px 50px;
-    
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #eee;
+    grid-template-columns: 20px 110px 90px 160px 1fr 90px 90px 90px;
+    grid-template-rows: 45px;
+    grid-template-areas: ". advertising business how . privacy terms settings";
+    border-top: 1px solid #ddd;
 
+}
+
+/*--------Media Queries ---------*/
+@media (max-width: 660px) {
+    footer {
+    display: grid;
+    position: fixed;
+    width: 100%;
+    bottom: -1000px;
+    left: 0;
+    background-color: #eee;
+    grid-template-columns: 20px 110px 90px 160px 1fr 90px 90px 90px;
+    grid-template-rows: 45px;
+    grid-template-areas: ". advertising business how . privacy terms settings";
+    border-top: 1px solid #ddd;
+
+}
 }
 </style>
 
@@ -135,32 +183,38 @@ footer {
 </head>
 <body>
 <nav id="navbar">
-    <a id="about-link" class="nav-link left" target="_blank" href="#">About</a>
-    <a id="store-link" class="nav-link left" target="_blank" href="#">Store</a>
-    <a id="gmail-link" class="nav-link right" target="_blank" href="#">Gmail</a>
-    <a id="images-link" class="nav-link left" target="_blank" href="#">Images</a>
+    <a id="about-link" class="nav-link left"  href="#">About</a>
+    <a id="store-link" class="nav-link left"  href="#">Store</a>
+    <a id="gmail-link" class="nav-link right" target="_blank" href="https://mail.google.com/">Gmail</a>
+    <a id="images-link" class="nav-link left"  href="#">Images</a>
     <a class="nav-link" id="apps-link" title="Google Apps">
         <img id="apps-link-img" src="https://image.flaticon.com/icons/png/512/60/60991.png"> 
     </a>
     <!--this is where the "Google Apps" icon is, which makes a box underneath appear with 29 icons, and a button for "more"-->
-    <a class="nav-link face" id="face-link" href="https://mail.google.com/mail/u/0/#inbox/FMfcgxwJXCKZQjHlmPMCmlnwxHkjCGCR" title="Gmail" target="_blank"><img id="right-face-thumbnail" class="nav-img" src="http://s3.amazonaws.com/ataimages/imgs/1210569/1_large.jpg" alt=""></a>
+    <a class="nav-link face" id="face-link" href="https://mail.google.com/" title="Gmail" target="_blank"><img id="right-face-thumbnail" class="nav-img" src="https://static.thenounproject.com/png/1482558-200.png" alt=""></a>
 </nav>
 <div class="search-area">
     <img  id="google-logo" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="google logo">
-    <div id="searchbar-outline">
-        <img id="search-icon" src="https://static.thenounproject.com/png/1189550-200.png">
-       <input type="text" title="Search" id="searchbar">
+    <div id="searchbar-container" class="full-searchbar">
+        <img id="search-icon" style="opacity: .5" src="https://static.thenounproject.com/png/202232-200.png">
+        <!-- above could also be src="https://static.thenounproject.com/png/1189550-200.png" for a more FUN magnifying glass-->
+       <input type="text" title="Search" id="searchbar" autofocus>
     </div>
     <div id="two-buttons">
-        <button>Button 1</button>
-        <button>Button 2</button>
+        <button class="search-button">Google Search</button>
+        <button class="search-button">I'm Feeling Lucky</button>
     </div>
     
 </div>
 
-<footer id="footer">
-    
-</footer>
-</body>
 
+</body>
+<footer id="footer">
+    <a href="#" class="footer-link" style="grid-area: advertising">Advertising</a>
+    <a href="#" class="footer-link" style="grid-area: business">Business</a>
+    <a href="#" class="footer-link" style="grid-area: how">How Search works</a>
+    <a href="#" class="footer-link" style="grid-area: privacy">Privacy</a>
+    <a href="#" class="footer-link" style="grid-area: terms">Terms</a>
+    <a href="#" class="footer-link" style="grid-area: settings">Settings</a>
+</footer>
 </html>
